@@ -12,6 +12,8 @@
 		227661CB20AF165100C1C214 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 227661C920AF165100C1C214 /* Main.storyboard */; };
 		227661CD20AF165200C1C214 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 227661CC20AF165200C1C214 /* Assets.xcassets */; };
 		227661D020AF165200C1C214 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 227661CE20AF165200C1C214 /* LaunchScreen.storyboard */; };
+		63354CF820B3667600306995 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63354CF720B3667600306995 /* AboutUsViewController.swift */; };
+		63354CFA20B37D2E00306995 /* AimForThat.html in Resources */ = {isa = PBXBuildFile; fileRef = 63354CF920B37D2D00306995 /* AimForThat.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		227661CC20AF165200C1C214 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		227661CF20AF165200C1C214 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		227661D120AF165200C1C214 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63354CF720B3667600306995 /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
+		63354CF920B37D2D00306995 /* AimForThat.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = AimForThat.html; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +63,9 @@
 				227661C920AF165100C1C214 /* Main.storyboard */,
 				227661CC20AF165200C1C214 /* Assets.xcassets */,
 				227661CE20AF165200C1C214 /* LaunchScreen.storyboard */,
+				63354CF920B37D2D00306995 /* AimForThat.html */,
 				227661D120AF165200C1C214 /* Info.plist */,
+				63354CF720B3667600306995 /* AboutUsViewController.swift */,
 			);
 			path = AimForThat;
 			sourceTree = "<group>";
@@ -123,6 +129,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				227661D020AF165200C1C214 /* LaunchScreen.storyboard in Resources */,
+				63354CFA20B37D2E00306995 /* AimForThat.html in Resources */,
 				227661CD20AF165200C1C214 /* Assets.xcassets in Resources */,
 				227661CB20AF165100C1C214 /* Main.storyboard in Resources */,
 			);
@@ -136,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				227661C820AF165100C1C214 /* GameViewController.swift in Sources */,
+				63354CF820B3667600306995 /* AboutUsViewController.swift in Sources */,
 				227661C620AF165100C1C214 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

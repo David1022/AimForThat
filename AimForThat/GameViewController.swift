@@ -25,8 +25,28 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        startNewRound()
+        
+        setupSlider()
+        resetGame()
         updateLabels()
+    }
+    
+    func setupSlider() {
+        let thumbImageNormal = UIImage(named: "SliderThumb-Normal")
+        let thumbImageHighlighted = UIImage(named: "SliderThumb-Highlighted")
+        let trackLeftImage = UIImage(named: "SliderTrackLeft")
+        let trackRightImage = UIImage(named: "SliderTrackRight")
+        
+        self.slider.setThumbImage(thumbImageNormal, for: .normal)
+        self.slider.setThumbImage(thumbImageHighlighted, for: .highlighted)
+        
+        let inset = UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 14)
+        let trackLeftResizable = trackLeftImage?.resizableImage(withCapInsets: inset)
+        let trackRightResizable = trackRightImage?.resizableImage(withCapInsets: inset)
+        
+        self.slider.setMinimumTrackImage(trackLeftResizable, for: .normal)
+        self.slider.setMaximumTrackImage(trackRightResizable, for: .normal)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,17 +60,40 @@ class GameViewController: UIViewController {
     
     @IBAction func showAlert(_ sender: UIButton) {
         let difference : Int = abs(self.currentValue - self.targetValue)
-        let points = (difference > 0) ? (100 - difference) : self.EXTRA_POINTS
+        var points = 100 - difference
+        
+        var title : String
+        switch difference {
+        case 0:
+            title = "Perfecto!"
+            points = Int (10.0 * Float (points))
+        case 1...3:
+            title = "Casi perfecto"
+            points = Int (1.5 * Float (points))
+        case 4...5:
+            title = "Ha faltado poco..."
+            points = Int (1.2 * Float (points))
+        default:
+            title = "Has estado un lejos"
+        }
+        
         self.score += points
+
+        let alert = UIAlertController(title: title,
+                                      message: "Has ganado \(points) puntos", preferredStyle: .alert)
         
-        let alert = UIAlertController(title: "Has ganado: ",
-                                      message: "\(points) puntos", preferredStyle: .alert)
-        
-        let action = UIAlertAction(title: "Aceptar", style: .default, handler: nil)
+        let action = UIAlertAction(title: "Aceptar", style: .default, handler:
+        {action in
+            self.startNewRound()
+            self.updateLabels()
+        })
         alert.addAction(action)
         present(alert, animated: true)
         
-        startNewRound()
+    }
+    
+    @IBAction func startNewGame(_ sender: Any) {
+        resetGame()
         updateLabels()
     }
     
@@ -65,6 +108,12 @@ class GameViewController: UIViewController {
         self.targetLabel.text = "\(self.targetValue)"
         self.scoreLabel.text = "\(self.score)"
         self.roundLabel.text = "\(self.round)"
+    }
+    
+    func resetGame() {
+        self.score = 0
+        self.round = 0
+        startNewRound()
     }
 }
 
